@@ -8,7 +8,7 @@ export function Card(props) {
 	return (
 		<>
 			<div
-				className={`${styles.card} ${
+				className={`${
 					props.title === "Безлимитный 550"
 						? `${bigCard}`
 						: `${standartCard}`
