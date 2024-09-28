@@ -1,5 +1,4 @@
 import styles from "./Card.module.scss";
-import "../../App.scss";
 
 export function Card(props) {
 	const bigCard = `${styles.card} ${styles.focus}`;
