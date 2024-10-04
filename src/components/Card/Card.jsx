@@ -1,18 +1,21 @@
+import { useState } from "react";
 import styles from "./Card.module.scss";
 
 export function Card(props) {
-	const bigCard = `${styles.card} ${styles.focus}`;
-	const standartCard = `${styles.card}`;
+	const [isSelected, setIsSelected] = useState(false);
+
+	const cardClass = isSelected
+		? `${styles.card} ${styles.focus}`
+		: styles.card;
+
+	const cardSelected = () => {
+		// состояние isSelected меняется на противоположное
+		setIsSelected((prevIsSelected) => !prevIsSelected);
+	};
 
 	return (
 		<>
-			<div
-				className={`${
-					props.title === "Безлимитный 550"
-						? `${bigCard}`
-						: `${standartCard}`
-				}`}
-			>
+			<div className={cardClass} onClick={cardSelected}>
 				<p className={`${styles.card__title} ${props.color}`}>
 					{props.title}
 				</p>
